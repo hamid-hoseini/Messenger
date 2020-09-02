@@ -115,6 +115,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonTapped() {
+        
+        // Get rid of keyboard
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text,
             !email.isEmpty, !password.isEmpty, password.count >= 6 else {
                 errorUserLoginError()
