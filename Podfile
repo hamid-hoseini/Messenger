@@ -18,4 +18,10 @@ target 'Messenger' do
   # Google
   pod 'GoogleSignIn'
 
+  # Other resources
+  pod 'MessageKit'
+  pod 'JGProgressHUD'
+  pod 'RealmSwift'	# a useful kit similar core data with cashed data to improve the performance in general and reduce our database cost
+  pod 'SDWebImage'	# allow a lot of image loading capability 
+
 end
