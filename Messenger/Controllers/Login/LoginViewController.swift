@@ -166,7 +166,7 @@ class LoginViewController: UIViewController {
         
         guard let email = emailField.text, let password = passwordField.text,
             !email.isEmpty, !password.isEmpty, password.count >= 6 else {
-                errorUserLoginError()
+                alertUserLoginError()
                 return
         }
         
@@ -188,12 +188,14 @@ class LoginViewController: UIViewController {
                 return
             }
             let user = result.user
+            
+            UserDefaults.standard.set(email, forKey: "email")
             print("user: \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         })
     }
     
-    func errorUserLoginError() {
+    func alertUserLoginError() {
         let alert = UIAlertController(title: "Wooops",
                                       message: "Please enter all information to log in.",
                                       preferredStyle: .alert)
@@ -254,6 +256,9 @@ extension LoginViewController: LoginButtonDelegate {
                 print("Failed to get email and name from fb result")
                 return
             }
+            
+            UserDefaults.standard.set(email, forKey: "email")
+            
 //            let nameComponents = userName.components(separatedBy: " ")
 //            guard nameComponents.count == 2 else {
 //                return
