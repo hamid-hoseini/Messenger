@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
         }
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-        let filename = safeEmail + "_profile_pricture.png"
+        let filename = safeEmail + "_profile_picture.png"
         let path = "images/" + filename
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 300))
